@@ -37,7 +37,7 @@ const GetQuadRides = async (req, res) => {
 
 const getQuadRideByName = async (req, res) => {
   try {
-    const quadRide = await QuadRide.findOne({ title: req.body.title });
+    const quadRide = await QuadRide.findOne({ title: req.params });
     if (!quadRide) {
       return res.status(404).json({
         success: false,

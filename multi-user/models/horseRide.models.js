@@ -21,10 +21,7 @@ const horseRideSchema = new Schema( {
         type: String,
         required: [true, 'La durée est obligatoire'],
       }, 
-      availableDates: {
-        type: [Date], // Tableau de dates
-        required: [true, 'Les dates disponibles sont obligatoires'],
-      },
+      
 
 
       availableDates: {

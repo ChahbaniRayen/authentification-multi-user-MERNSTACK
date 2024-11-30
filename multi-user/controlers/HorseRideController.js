@@ -39,7 +39,7 @@ const GetHorseRides= async (req,res)=> {
     } 
     const getHorseRideByName = async (req, res) => {
         try {
-          const horseRide = await HorseRide.findOne(req.body.title);
+          const horseRide = await HorseRide.findOne(req.params);
           if (!horseRide) {
             return res.status(404).json({
               success: false,
