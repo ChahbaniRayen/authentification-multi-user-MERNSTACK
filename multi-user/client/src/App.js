@@ -15,53 +15,79 @@ import store from './components/Redux/Store';
 import { jwtDecode } from 'jwt-decode'; 
 import { setUser } from './components/actions/authActions';
 import { useSelector } from 'react-redux';
-import { setAuth } from './utile/setAuth';
+import { setAuth } from './utile/setAuth'; 
+import Header from './components/Header';
+import HeroSection from './components/HeroSection'; 
+import  ActivitySection from './components/ActivitySection';
 
-if (window.localStorage.jwt){   
-  const decode = jwtDecode(localStorage.jwt);
-  store.dispatch(setUser(decode)); 
-  setAuth(window.localStorage.jwt)
-}
+// if (window.localStorage.jwt){   
+//   const decode = jwtDecode(localStorage.jwt);
+//   store.dispatch(setUser(decode)); 
+//   setAuth(window.localStorage.jwt)
+// }
 
-function App() {  
-  const auth = useSelector(state=>state.auth)
-  const user={
-    isConnected:auth.isConnected, 
-    role:auth.user.role
+// function App() {  
+//   const auth = useSelector(state=>state.auth)
+//   const user={
+//     isConnected:auth.isConnected, 
+//     role:auth.user.role
 
-  }
+//   }
+//   return (
+//     <BrowserRouter > 
+//         <div className="bg-light" style={{ height: "100vh" }}>
+//         <Navbar user={user}/>
+
+//       <Routes> 
+
+//         <Route path="/" element={
+//           <PrivateRouter user={user}> 
+//             <Profile />
+//           </PrivateRouter>
+//         } />
+//         <Route path="/login" element={
+//           <ForceRedirect user={user} >
+//             <Login />
+//           </ForceRedirect>} />
+//         <Route path="/register" element={
+//           <ForceRedirect  user={user} >
+//             <Register />
+//           </ForceRedirect>}  />
+//         <Route path="/admin" element={
+//            <AdminRouter user={user}> 
+//            <Admin />
+//          </AdminRouter>
+//         } /> 
+//         <Route path="/*" element={<NotFound />} />
+//         <Route path="/NoAccess" element={<Access />} />
+
+//       </Routes> 
+//       </div>
+//     </BrowserRouter>
+//   );
+// }  
+
+function App() {
+  const activities = [
+    {
+      title: 'Jet-ski riding',
+      description: '...',
+      image: 'jet-ski.jpg',
+    },
+    {
+      // ...
+    },
+  ];
+
   return (
-    <BrowserRouter > 
-        <div className="bg-light" style={{ height: "100vh" }}>
-        <Navbar user={user}/>
-
-      <Routes> 
-
-        <Route path="/" element={
-          <PrivateRouter user={user}> 
-            <Profile />
-          </PrivateRouter>
-        } />
-        <Route path="/login" element={
-          <ForceRedirect user={user} >
-            <Login />
-          </ForceRedirect>} />
-        <Route path="/register" element={
-          <ForceRedirect  user={user} >
-            <Register />
-          </ForceRedirect>}  />
-        <Route path="/admin" element={
-           <AdminRouter user={user}> 
-           <Admin />
-         </AdminRouter>
-        } /> 
-        <Route path="/*" element={<NotFound />} />
-        <Route path="/NoAccess" element={<Access />} />
-
-      </Routes> 
-      </div>
-    </BrowserRouter>
+    <div>
+      <Header />
+      <HeroSection />
+      
+    </div>
   );
 }
+
+
 
 export default App;
