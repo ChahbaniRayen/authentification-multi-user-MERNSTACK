@@ -11,7 +11,7 @@ function Inputs({ name, label, type, value, icon, onChangeHandel, errors }) {
           value={value}
           name={name}
           className="form-control"
-          onChange={onChangeHandel} // Assurez-vous d'utiliser le bon nom
+          onChange={onChangeHandel} 
         />
       </div>
       {errors && <div style={{ color: "red" }}>{errors}</div>}

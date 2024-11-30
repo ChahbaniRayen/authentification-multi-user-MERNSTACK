@@ -4,6 +4,7 @@ const ValidateRefister= require("../validation/Registre");
 const ValidateLogin=require("../validation/Login"); 
 const bcrypt = require('bcryptjs'); 
 const jwt = require('jsonwebtoken');
+
 const Register = async (req,res)=> { 
     const {errors,isValid}=ValidateRefister(req.body);
 
@@ -32,6 +33,8 @@ const Register = async (req,res)=> {
        }
    } catch(err){
     res.status(500).json({error: err.message});  
+
+
 
    }
 } 
@@ -71,6 +74,7 @@ const Login = async (req, res) => {
 
     } catch (err) { 
         res.status(500).json({ error: err.message });  
+
     }
 };
 
